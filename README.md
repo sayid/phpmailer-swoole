@@ -4,8 +4,14 @@ it can send mail by socks5 in phpmailer;
 
 
 
-how to use it
+#env
+php>=7
+phpmailer>=6
+swoole>=4
 
+
+
+how to use it
 
 for example:
 
