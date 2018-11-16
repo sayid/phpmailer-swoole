@@ -11,34 +11,22 @@ for example:
 
 
 $mail = new PHPMailer(true);
-
 $mail->isSMTP(); // tell to use smtp
-
 $mail->CharSet = "utf-8"; // set charset to utf8
-
 $mail->SMTPAuth = true;  // use smpt auth
-
 $mail->SMTPSecure = "ssl";
-
 $mail->Host = $mail_host;
-
 $mail->Port = $mail_port;
-
 $mail->Username = $mail_user_name;
-
 $mail->Password = $mail_pwd;
-
 $mail->setFrom($mail_user_name, $mail_from_name);
-
 $mail->Subject = $subject;
-
 $mail->MsgHTML($body);
 
 //look here
 $smtp = new \PHPMailerSwoole\PHPMailer\SMTP();
 //reset phpmailer's smtp object
 $mail->setSMTPInstance($smtp);
-
 $re = $mail->send();
 
 
