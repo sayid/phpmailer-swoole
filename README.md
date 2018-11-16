@@ -31,7 +31,7 @@ $mail->MsgHTML($body);
 
 //look here
 $smtp = new \PHPMailerSwoole\PHPMailer\SMTP();
-//reset phpmailer's smtp object
+//reset phpmailer's member variable(smtp object)
 $mail->setSMTPInstance($smtp);
 
 $re = $mail->send();
