@@ -1,0 +1,32 @@
+{
+    "name": "phpmailer-swoole",
+    "description": "for Coroutine",
+    "type": "library",
+    "version": "2.1.1",
+    "require": {
+        "phpmailer/phpmailer": "~6.0"
+    },
+    "require-dev": {
+
+    },
+    "autoload": {
+        "psr-4": {
+            "PHPMailserSwoole\\": "src/"
+        },
+        "files": [
+        ]
+    },
+    "authors": [
+        {
+            "name": "zyb",
+            "email": "449063862@qq.com"
+        }
+    ],
+    "minimum-stability": "dev",
+  "repositories": {
+    "packagist": {
+      "type": "composer",
+      "url": "https://packagist.org"
+    }
+  }
+}
