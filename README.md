@@ -2,7 +2,9 @@
 
 - it can send mail by socks5 in phpmailer; 
 
+#install
 
+composer require phpmailer-swoole
 
 #env
  - php>=7
