@@ -1,6 +1,6 @@
 <?php
 
-namespace App\PHPMailer;
+namespace PHPMailerSwoole\PHPMailer;
 
 /**
  * 复写smtp连接器
@@ -10,11 +10,16 @@ namespace App\PHPMailer;
 class SMTP extends \PHPMailer\PHPMailer\SMTP
 {
 
-    //需要使用代理的邮箱
-    public static $PROXY_MAIL = ['gmail.com', 'hotmail.com', 'outlook.com'];//
-
     public $smtp_conn;
 
+    private $swoole_conn_setting = [
+        'package_max_length' => 2000000
+    ];
+
+    public function swooleSetting($settiong = [])
+    {
+        $this->swoole_conn_setting = $settiong;
+    }
     public function connect($host, $port = null, $timeout = 30, $options = [])
     {
 
@@ -26,21 +31,9 @@ class SMTP extends \PHPMailer\PHPMailer\SMTP
         }
         $host = $url['host'];
         $this->smtp_conn = new \Swoole\Coroutine\Client($sockType);
-        $client_setting = [
-            'package_max_length' => 2000000
-        ];
-        $email_host = substr($host, strpos($host, ".")+1);
-        if (in_array($email_host, self::$PROXY_MAIL) && env("PROXY_HOST")) {
-            //需要使用代理
-            $client_setting['socks5_host'] = env("PROXY_HOST");
-            $client_setting['socks5_port'] = env("PROXY_PORT");
-            if (env("PROXY_USERNAME")) {
-                $client_setting['socks5_username'] = env("PROXY_USERNAME");
-                $client_setting['socks5_password'] = env("PROXY_PASS");
-            }
-        }
-        if ($client_setting) {
-            $this->smtp_conn->set($client_setting);
+
+        if ($this->swoole_conn_setting) {
+            $this->smtp_conn->set($this->swoole_conn_setting);
         }
         if (!$this->smtp_conn->connect($host, $port, $timeout)) {
             //连接失败
