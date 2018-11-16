@@ -1,13 +1,13 @@
 # phpmailer-swoole
 
-it can send mail by socks5 in phpmailer; 
+- it can send mail by socks5 in phpmailer; 
 
 
 
 #env
- php>=7 
- phpmailer>=6
- swoole>=4 
+ - php>=7
+ - phpmailer>=6;
+ - swoole>=4;
 
 
 
