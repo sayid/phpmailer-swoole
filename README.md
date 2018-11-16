@@ -19,7 +19,7 @@ how to use it
 for example:
 
 ```php
-$mail = new PHPMailer(true);
+$mail = new PHPMailer\PHPMailer\PHPMailer(true);
 $mail->isSMTP(); // tell to use smtp
 $mail->CharSet = "utf-8"; // set charset to utf8
 $mail->SMTPAuth = true;  // use smpt auth
@@ -76,7 +76,7 @@ composer require phpmailer-swoole
 如何使用:
 
 ```php
-$mail = new PHPMailer(true);
+$mail = new PHPMailer\PHPMailer\PHPMailer(true);
 $mail->isSMTP(); // tell to use smtp
 $mail->CharSet = "utf-8"; // set charset to utf8
 $mail->SMTPAuth = true;  // use smpt auth
