@@ -9,7 +9,7 @@ how to use it
 
 for example:
 
-
+```php
 $mail = new PHPMailer(true);
 $mail->isSMTP(); // tell to use smtp
 $mail->CharSet = "utf-8"; // set charset to utf8
@@ -27,11 +27,13 @@ $mail->MsgHTML($body);
 $smtp = new \PHPMailerSwoole\PHPMailer\SMTP();
 //reset phpmailer's smtp object
 $mail->setSMTPInstance($smtp);
-$re = $mail->send();
 
+$re = $mail->send();
+```
 
 if u need to use socks5,just code:
 
+```php
 $client_setting = [];
 $client_setting['socks5_host'] = 127.0.0.1;
 $client_setting['socks5_port'] = 1000;
@@ -42,3 +44,4 @@ $smtp = new \PHPMailerSwoole\PHPMailer\SMTP();
 //reset phpmailer's smtp object
 $smtp->swooleSetting($client_setting);
 $mail->setSMTPInstance($smtp);
+```
