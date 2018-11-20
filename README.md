@@ -59,7 +59,7 @@ $mail->setSMTPInstance($smtp);
 
 # phpmailer-swoole
 
-基于Swoole运行的phpmailer，无侵入式扩展。底层采用Swoole协程client客户端，并可以自行设置client的setting属性。
+基于Swoole运行的phpmailer，无侵入式扩展无需修改phpmailer代码。底层采用Swoole协程client客户端，并可以自行设置client的setting属性。
 
 #install
 ````
